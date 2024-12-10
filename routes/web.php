@@ -21,6 +21,9 @@ Route::resource('sections',SectionsController::class);
 
 Route::resource('products',ProductsController::class);
 
+Route::get('/section/{id}', [InvoicesController::class,'getproducts'])->name('getproducts');
+
+
 Route::get('/{page}', [AdminController::class,'index']);
 
 
@@ -28,15 +31,12 @@ Route::get('/{page}', [AdminController::class,'index']);
 
 // Auth::routes(['register' => true]);
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 // Route::resource('invoices',InvoicesController::class);
 
-// 
 
-// 
 
-// Route::get('/section/{id}', [InvoicesController::class,'getproducts'])->name('getproducts');
 
 
 

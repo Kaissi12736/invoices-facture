@@ -208,13 +208,12 @@ class InvoicesController extends Controller
 //         }
 
 
-//     }
-//     public function getproducts($id)
-//     {
-//         $products = DB::table("products")->where("section_id", $id)->pluck("Product_name", "id");
-//         return json_encode($products);
-//     }
-
+    }
+    public function getproducts($id){
+        $products = DB::table("products")->where("section_id", $id)->pluck("Product_name", "id");
+        return json_encode($products);
+    
+    }
 
 //     public function Status_Update($id, Request $request)
 //     {
@@ -331,4 +330,3 @@ class InvoicesController extends Controller
 
 
 
-}
