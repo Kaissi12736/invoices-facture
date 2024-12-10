@@ -9,16 +9,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class products extends Model
 
 {
-    // protected $fillable = [
-    //     'Product_name',
-    //     'section_id',
-    //     'description',
+    protected $fillable = [
+        'Product_name',
+        'section_id',
+        'description',
 
-    // ];
-    // public function section(): BelongsTo
-    // {
+    ];
+    public function section(): BelongsTo
+    {
        
-    //     return $this->belongsTo(Sections::class, 'section_id', 'id');
+        return $this->belongsTo(Sections::class, 'section_id', 'id');
         
-    // }
+    }
 }
