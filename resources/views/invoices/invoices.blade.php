@@ -56,22 +56,42 @@
 													<th class="border-bottom-0"> ملاحظات </th>
 												</tr>
 											</thead>
-											<tbody>
-												<tr>
-													<td>1</td>
-													<td>A12345</td>
-													<td>21/03/2024</td>
-													<td>21/06/2024</td>
-													<td>Laptop Apple</td>
-													<td>معلوميات</td>
-													<td> 300 </td>
-													<td>5</td>
-													<td>30</td>
-													<td>1200</td>
-													<td>لم يتم الدفع</td>
-													<td>لا يوجد</td>
+											<tbody>		
+												@php
+												$i = 0;
+												@endphp
+												@foreach ($invoices as $invoice)
+												@php
+													$i++;
+												@endphp
+												<tr>												
+													<td>{{$i}}</td>
+													<td>{{$invoice->invoice_number}}</td>
+													<td>{{$invoice->invoice_Date}}</td>
+													<td>{{$invoice->Due_date}}</td>
+													<td>{{$invoice->product}}</td>
+													<td><a
+														href="{{ url('InvoicesDetails') }}/{{ $invoice->id }}">{{ $invoice->section->section_name }}</a>
+												</td>
+													
+													<td> {{$invoice->Discount}}</td>
+													<td> {{$invoice->Rate_VAT}}</td>
+													<td> {{$invoice->Value_VAT}}</td>
+													<td> {{$invoice->Total}}</td>
+													<td> 
+														
+														@if ($invoice->Value_Status == 1)
+														<span class="text-success">{{ $invoice->Status }}</span>
+													@elseif($invoice->Value_Status == 2)
+														<span class="text-danger">{{ $invoice->Status }}</span>
+													@else
+														<span class="text-warning">{{ $invoice->Status }}</span>
+													@endif
+												</td>
+
+													<td> {{$invoice->note}}</td>
 												</tr>
-												
+												@endforeach
 											</tbody>
 										</table>
 									</div>

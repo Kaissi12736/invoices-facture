@@ -6,12 +6,14 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\SectionsController;
+use App\Http\Controllers\InvoiceDetailsController;
 
 Route::get('/', function () {
     return view('auth.login');
 });
 
-Auth::routes();
+
+Auth::routes(['register' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -23,13 +25,15 @@ Route::resource('products',ProductsController::class);
 
 Route::get('/section/{id}', [InvoicesController::class,'getproducts'])->name('getproducts');
 
+Route::get('/InvoicesDetails/{id}', [InvoiceDetailsController::class,'edit'])->name('getproducts');
+
 
 Route::get('/{page}', [AdminController::class,'index']);
 
 
 
 
-// Auth::routes(['register' => true]);
+
 
 
 

@@ -1,35 +1,36 @@
 <?php
 
-namespace App;
+namespace App\Models;
+use App\Models\Sections;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class invoices extends Model
+class Invoices extends Model
 {
-    // use SoftDeletes;
-    // protected $fillable = [
-    //     'invoice_number',
-    //     'invoice_Date',
-    //     'Due_date',
-    //     'product',
-    //     'section_id',
-    //     'Amount_collection',
-    //     'Amount_Commission',
-    //     'Discount',
-    //     'Value_VAT',
-    //     'Rate_VAT',
-    //     'Total',
-    //     'Status',
-    //     'Value_Status',
-    //     'note',
-    //     'Payment_Date',
-    // ];
+    use SoftDeletes;
+    protected $fillable = [
+        'invoice_number',
+        'invoice_Date',
+        'Due_date',
+        'product',
+        'section_id',
+        'Amount_collection',
+        'Amount_Commission',
+        'Discount',
+        'Value_VAT',
+        'Rate_VAT',
+        'Total',
+        'Status',
+        'Value_Status',
+        'note',
+        'Payment_Date',
+    ];
 
-    // protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at'];
 
  public function section()
    {
-//    return $this->belongsTo('App\sections');
+    return $this->belongsTo('App\Models\Sections');
    }
 }

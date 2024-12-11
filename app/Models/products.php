@@ -6,7 +6,7 @@ use App\Models\Sections;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class products extends Model
+class Products extends Model
 
 {
     protected $fillable = [
