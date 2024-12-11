@@ -27,6 +27,12 @@ Route::get('/section/{id}', [InvoicesController::class,'getproducts'])->name('ge
 
 Route::get('/InvoicesDetails/{id}', [InvoiceDetailsController::class,'edit'])->name('getproducts');
 
+Route::get('download/{invoice_number}/{file_name}', [InvoiceDetailsController::class, 'get_file']);
+
+Route::get('View_file/{invoice_number}/{file_name}', [InvoiceDetailsController::class, 'open_file']);
+
+
+Route::any('delete_file', [InvoiceDetailsController::class, 'destroy'])->name('delete_file');
 
 Route::get('/{page}', [AdminController::class,'index']);
 

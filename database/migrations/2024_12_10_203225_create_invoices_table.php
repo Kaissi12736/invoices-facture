@@ -18,7 +18,7 @@ return new class extends Migration
                 $table->date('invoice_Date')->nullable();
                 $table->date('Due_date')->nullable();
                 $table->string('product', 50);
-                $table->bigInteger( 'section_id' )->unsigned();
+                $table->bigInteger('section_id')->unsigned();
                 $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
                 $table->decimal('Amount_collection',15,2)->nullable();;
                 $table->decimal('Amount_Commission',15,2);
