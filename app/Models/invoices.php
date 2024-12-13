@@ -23,5 +23,9 @@ class Invoices extends Model
     {
         return $this->hasMany(Invoice_attachments::class, 'invoice_id', 'id');
     }
+    public function section() {
+        return $this->belongsTo(Sections::class, 'section_id');  // تأكد من أن المفتاح الأجنبي section_id موجود
+    }
+    
 
 }

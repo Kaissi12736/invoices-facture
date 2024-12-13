@@ -155,8 +155,6 @@
                                                             <th>نوع المنتج</th>
                                                             <th>القسم</th>
                                                             <th>حالة الدفع</th>
-                                                            <th>تاريخ الدفع </th>
-                                                            <th>ملاحظات</th>
                                                             <th>تاريخ الاضافة </th>
                                                             <th>المستخدم</th>
                                                         </tr>
@@ -183,8 +181,7 @@
                                                                             class="badge badge-pill badge-warning">{{ $x->Status }}</span>
                                                                     </td>
                                                                 @endif
-                                                                <td>{{ $x->Payment_Date }}</td>
-                                                                <td>{{ $x->note }}</td>
+                                                            
                                                                 <td>{{ $x->created_at }}</td>
                                                                 <td>{{ $x->user }}</td>
                                                             </tr>

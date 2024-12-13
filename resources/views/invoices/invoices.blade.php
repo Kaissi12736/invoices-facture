@@ -118,12 +118,11 @@
                                         <td>{{ $invoice->Due_date }}</td>
                                         <td>{{ $invoice->product }}</td>
                                         <td>
-                                            @if ($invoice->section)
-                                                <a href="{{ url('InvoicesDetails') }}/{{ $invoice->id }}">{{ $invoice->section->section_name }}</a>
-                                            @else
-                                                لا يوجد قسم
-                                            @endif
+                                            <a href="{{ url('InvoicesDetails') }}/{{ $invoice->id }}">
+                                                {{ $invoice->section ? $invoice->section->section_name : \App\Models\Sections::find($invoice->section_id)?->section_name }}
+                                            </a>
                                         </td>
+                                        
                                         
                                         <td>{{ $invoice->Discount }}</td>
                                         <td>{{ $invoice->Rate_VAT }}</td>
