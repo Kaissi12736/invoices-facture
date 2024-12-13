@@ -31,6 +31,13 @@ Route::resource('InvoiceAttachments',InvoiceAttachmentsController::class);
 
 Route::get('/InvoicesDetails/{id}', [InvoiceDetailsController::class,'edit'])->name('getproducts');
 
+Route::get('/Status_show/{id}', [InvoicesController::class,'show'])->name('Status_show');
+
+
+Route::post('/Status_Update/{id}', [InvoicesController::class,'Status_Update'])->name('Status_Update');
+
+
+
 Route::get('download/{invoice_number}/{file_name}', [InvoiceDetailsController::class, 'get_file']);
 
 Route::get('View_file/{invoice_number}/{file_name}', [InvoiceDetailsController::class, 'open_file']);

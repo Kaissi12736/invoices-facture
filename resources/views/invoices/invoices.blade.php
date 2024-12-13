@@ -160,13 +160,11 @@
                                                     {{-- @endcan --}}
 
                                                     {{-- @can('تغير حالة الدفع') --}}
-                                                        <a class="dropdown-item"
-														{{-- {{ URL::route('Status_show', [$invoice->id]) }} --}}
-                                                            href=""><i
-                                                                class=" text-success fas
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    fa-money-bill"></i>&nbsp;&nbsp;تغير
-                                                            حالة
-                                                            الدفع</a>
+                                                    <a class="dropdown-item"
+                                                    href="{{ route('Status_show', $invoice->id) }}">
+                                                    <i class="text-success fas fa-money-bill"></i>&nbsp;&nbsp;تغير حالة الدفع
+                                                 </a>
+                                                 
                                                     {{-- @endcan --}}
 
                                                     {{-- @can('ارشفة الفاتورة') --}}
