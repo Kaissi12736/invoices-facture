@@ -17,7 +17,7 @@ return new class extends Migration
                 $table->string('file_name', 999);
                 $table->string('invoice_number', 50);
                 $table->string('Created_by', 999);
-                $table->unsignedBigInteger('invoice_id')->nullable();
+                $table->unsignedBigInteger('invoice_id');
                 $table->foreign('invoice_id')->references('id')->on('invoices')->onDelete('cascade');
                 $table->timestamps();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('invoices_attachements');
+        Schema::dropIfExists('invoice_attachments');
     }
 };

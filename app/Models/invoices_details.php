@@ -3,18 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class invoices_details extends Model
 {
-    protected $fillable = [
-        'id_Invoice',
-        'invoice_number',
-        'product',
-        'Section',
-        'Status',
-        'Value_Status',
-        'note',
-        'user',
-        'Payment_Date',
-    ];
+    protected $guarded = [];
+
+    public function invoice(): BelongsTo
+    {
+        return $this->belongsTo(Invoices::class, 'id_Invoice', 'id');
+    }
+
 }

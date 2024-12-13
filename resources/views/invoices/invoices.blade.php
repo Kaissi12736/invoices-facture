@@ -72,15 +72,15 @@
         <div class="col-xl-12">
             <div class="card mg-b-20">
                 <div class="card-header pb-0">
-                    @can('اضافة فاتورة')
+                    {{-- @can('اضافة فاتورة') --}}
                         <a href="invoices/create" class="modal-effect btn btn-sm btn-primary" style="color:white"><i
                                 class="fas fa-plus"></i>&nbsp; اضافة فاتورة</a>
-                    @endcan
+                    {{-- @endcan --}}
 
-                    @can('تصدير EXCEL')
+                    {{-- @can('تصدير EXCEL') --}}
                         <a class="modal-effect btn btn-sm btn-primary" href="{{ url('export_invoices') }}"
                             style="color:white"><i class="fas fa-file-download"></i>&nbsp;تصدير اكسيل</a>
-                    @endcan
+                    {{-- @endcan --}}
 
                 </div>
                 <div class="card-body">
@@ -117,9 +117,14 @@
                                         <td>{{ $invoice->invoice_Date }}</td>
                                         <td>{{ $invoice->Due_date }}</td>
                                         <td>{{ $invoice->product }}</td>
-                                        <td><a
-                                                href="{{ url('InvoicesDetails') }}/{{ $invoice->id }}">{{ $invoice->section->section_name }}</a>
+                                        <td>
+                                            @if ($invoice->section)
+                                                <a href="{{ url('InvoicesDetails') }}/{{ $invoice->id }}">{{ $invoice->section->section_name }}</a>
+                                            @else
+                                                لا يوجد قسم
+                                            @endif
                                         </td>
+                                        
                                         <td>{{ $invoice->Discount }}</td>
                                         <td>{{ $invoice->Rate_VAT }}</td>
                                         <td>{{ $invoice->Value_VAT }}</td>

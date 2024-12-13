@@ -19,8 +19,9 @@ return new class extends Migration
                 $table->date('Due_date')->nullable();
                 $table->string('product', 50);
                 $table->bigInteger('section_id')->unsigned();
+                
                 $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
-                $table->decimal('Amount_collection',15,2)->nullable();;
+                $table->decimal('Amount_collection',15,2)->nullable();
                 $table->decimal('Amount_Commission',15,2);
                 $table->decimal('Discount',8,2);
                 $table->decimal('Value_VAT',8,2);
@@ -30,7 +31,7 @@ return new class extends Migration
                 $table->integer('Value_Status');
                 $table->text('note')->nullable();
                 $table->date('Payment_Date')->nullable();
-                $table->softDeletes();
+               // $table->softDeletes();
                 $table->timestamps();
             });
        

@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\invoices_details;
-use App\Models\sections;
 use App\Models\invoices;
+use App\Models\sections;
 use App\Events\MyEventClass;
-use App\Models\invoice_attachments;
 use Illuminate\Http\Request;
 use App\Exports\InvoicesExport;
+use App\Models\invoices_details;
 use App\Notifications\AddInvoice;
 use Illuminate\Support\Facades\DB;
+use App\Models\invoice_attachments;
+
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
@@ -185,40 +186,41 @@ class InvoicesController extends Controller
      */
     public function destroy(Request $request)
     {
-//         $id = $request->invoice_id;
-//         $invoices = invoices::where('id', $id)->first();
-//         $Details = invoice_attachments::where('invoice_id', $id)->first();
+        $id = $request->invoice_id;
+        $invoices = invoices::where('id', $id)->first();
+        $Details = invoice_attachments::where('invoice_id', $id)->first();
 
-//          $id_page =$request->id_page;
+         $id_page =$request->id_page;
 
 
-//         if (!$id_page==2) {
+        if (!$id_page==2) {
 
-//         if (!empty($Details->invoice_number)) {
+        if (!empty($Details->invoice_number)) {
 
-//             Storage::disk('public_uploads')->deleteDirectory($Details->invoice_number);
-//         }
+            Storage::disk('public_uploads')->deleteDirectory($Details->invoice_number);
+        }
+       
 
-//         $invoices->forceDelete();
-//         session()->flash('delete_invoice');
-//         return redirect('/invoices');
+        $invoices->delete();
+        session()->flash('delete_invoice');
+        return redirect('/invoices');
 
-//         }
+        }
 
-//         else {
+        else {
 
-//             $invoices->delete();
-//             session()->flash('archive_invoice');
-//             return redirect('/Archive');
-//         }
+            $invoices->delete();
+            session()->flash('archive_invoice');
+            return redirect('/Archive');
+        }
 
 
     }
-    public function getproducts($id){
+      public function getproducts($id){
         $products = DB::table("products")->where("section_id", $id)->pluck("Product_name", "id");
         return json_encode($products);
     
-    }
+     }
 
 //     public function Status_Update($id, Request $request)
 //     {
