@@ -10,8 +10,8 @@ use App\Models\invoices_details;
 use App\Notifications\AddInvoice;
 use Illuminate\Support\Facades\DB;
 use App\Models\invoice_attachments;
+use App\Models\User;
 
-use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Storage;
@@ -104,18 +104,19 @@ class InvoicesController extends Controller
         }
 
 
-        //    $user = User::first();
-        //    Notification::send($user, new AddInvoice($invoice_id));
 
-        // $user = User::get();
-        // $invoices = invoices::latest()->first();
-        // Notification::send($user, new \App\Notifications\Add_invoice_new($invoices));
+             $user = User::first();
+             Notification::send($user, new AddInvoice($invoice_id));
 
-     
-
-
+             
+        //    $user = User::get();
+        //    $invoices = invoices::latest()->first();
+        //    Notification::send($user, new \App\Notifications\Add_invoice_new($invoices));
 
 
+
+        $user = User::find(1); // استبدل بـ ID المستخدم
+        Notification::send($user, new AddInvoice($invoice_id));
         
         // event(new MyEventClass('hello world'));
 
