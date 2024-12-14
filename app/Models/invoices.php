@@ -5,6 +5,8 @@ use App\Models\Sections;
 use App\Models\invoices_details;
 use App\Models\invoice_attachments;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,6 +14,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Invoices extends Model
 {
+    use SoftDeletes;
+
     protected $guarded = [];
 
     public function details(): HasMany

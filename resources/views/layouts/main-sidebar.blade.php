@@ -33,7 +33,7 @@
 					<li><a class="slide-item" href="{{ url('/' . $page='chart-flot') }}">الفواتير المدفوعة</a></li>
 					<li><a class="slide-item" href="{{ url('/' . $page='chart-chartjs') }}">الفواتير الغير مدفوعة</a></li>
 					<li><a class="slide-item" href="{{ url('/' . $page='chart-echart') }}">الفواتير مدفوعة جزئيا</a></li>
-					
+					<li><a class="slide-item" href="{{ url('/' . ($page = 'Archive')) }}">ارشيف الفواتير</a></li>
 				</ul>
 			</li>
 			

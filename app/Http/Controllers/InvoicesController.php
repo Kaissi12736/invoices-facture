@@ -201,7 +201,7 @@ class InvoicesController extends Controller
         }
        
 
-        $invoices->delete();
+        $invoices->forceDelete();
         session()->flash('delete_invoice');
         return redirect('/invoices');
 
@@ -271,29 +271,29 @@ class InvoicesController extends Controller
     }
 
 
-//      public function Invoice_Paid()
-//     {
-//         $invoices = Invoices::where('Value_Status', 1)->get();
-//         return view('invoices.invoices_paid',compact('invoices'));
-//     }
+     public function Invoice_Paid()
+    {
+        $invoices = Invoices::where('Value_Status', 1)->get();
+        return view('invoices.invoices_paid',compact('invoices'));
+    }
 
-//     public function Invoice_unPaid()
-//     {
-//         $invoices = Invoices::where('Value_Status',2)->get();
-//         return view('invoices.invoices_unpaid',compact('invoices'));
-//     }
+    public function Invoice_unPaid()
+    {
+        $invoices = Invoices::where('Value_Status',2)->get();
+        return view('invoices.invoices_unpaid',compact('invoices'));
+    }
 
-//     public function Invoice_Partial()
-//     {
-//         $invoices = Invoices::where('Value_Status',3)->get();
-//         return view('invoices.invoices_Partial',compact('invoices'));
-//     }
+    public function Invoice_Partial()
+    {
+        $invoices = Invoices::where('Value_Status',3)->get();
+        return view('invoices.invoices_Partial',compact('invoices'));
+    }
 
-//     public function Print_invoice($id)
-//     {
-//         $invoices = invoices::where('id', $id)->first();
-//         return view('invoices.Print_invoice',compact('invoices'));
-//     }
+    public function Print_invoice($id)
+    {
+        $invoices = invoices::where('id', $id)->first();
+        return view('invoices.Print_invoice',compact('invoices'));
+    }
 
 //     public function export()
 //     {
