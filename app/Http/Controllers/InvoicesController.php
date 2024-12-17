@@ -115,8 +115,7 @@ class InvoicesController extends Controller
 
 
 
-        $user = User::find(1); // استبدل بـ ID المستخدم
-        Notification::send($user, new AddInvoice($invoice_id));
+    
         
         // event(new MyEventClass('hello world'));
 
@@ -296,12 +295,12 @@ class InvoicesController extends Controller
         return view('invoices.Print_invoice',compact('invoices'));
     }
 
-//     public function export()
-//     {
+    public function export()
+    {
+           
+        return Excel::download(new InvoicesExport, 'invoices.xlsx');
 
-//         return Excel::download(new InvoicesExport, 'invoices.xlsx');
-
-//     }
+    }
 
 
 //     public function MarkAsRead_all (Request $request)

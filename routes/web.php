@@ -9,6 +9,9 @@ use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\InvoiceAchiveController;
 use App\Http\Controllers\InvoiceDetailsController;
 use App\Http\Controllers\InvoiceAttachmentsController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+
 
 Route::get('/', function () {
     return view('auth.login');
@@ -54,16 +57,24 @@ Route::resource('Archive',InvoiceAchiveController::class);
 
 Route::get('Print_invoice/{id}',[InvoicesController::class,'Print_invoice']);
 
+
+Route::get('export_invoices', [InvoicesController::class, 'export']);
+
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
+ 
+});
+
+
 Route::get('/{page}', [AdminController::class,'index']);
 
 
 
 
-
-
-
-
-// Route::resource('invoices',InvoicesController::class);
 
 
 

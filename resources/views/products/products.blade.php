@@ -67,8 +67,10 @@
             <div class="card mg-b-20">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
+                        @can('اضافة منتج')
                         <button type="button" class="button x-small alert alert-primary" data-toggle="modal"
                             data-target="#exampleModal"><i class="fas fa-plus"></i>&nbsp; اضافة منتج</button><br><br>
+                         @endcan
                     </div>
                 </div>
                 <div class="card-body">
@@ -94,16 +96,20 @@
                                         <td>{{ optional($product->section)->section_name ?? 'القسم غير موجود' }}</td>
                                         <td>{{ $product->description }}</td>
                                         <td>
+                                            @can('تعديل منتج')
                                             <button class="btn btn-outline-success btn-sm"
                                                 data-name="{{ $product->Product_name }}" data-pro_id="{{ $product->id }}"
                                                 data-section_name="{{ $product->section->section_name }}"
                                                 data-description="{{ $product->description }}" data-toggle="modal"
                                                 data-target="#edit_Product">تعديل</button>
+                                                @endcan
 
+                                                @can('حذف منتج')
                                             <button class="btn btn-outline-danger btn-sm "
                                                 data-pro_id="{{ $product->id }}"
                                                 data-product_name="{{ $product->Product_name }}" data-toggle="modal"
                                                 data-target="#modaldemo9">حذف</button>
+                                                @endcan
                                         </td>
                                 @endforeach
 

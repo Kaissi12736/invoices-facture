@@ -72,9 +72,10 @@
         <div class="card mg-b-20">
             <div class="card-header pb-0">
                 <div class="d-flex justify-content-between">
+                    @can('اضافة قسم')
                     <a class="modal-effect btn btn-outline-primary btn-block" data-effect="effect-scale"
                         data-toggle="modal" href="#modaldemo8">اضافة قسم</a>
-
+                     @endcan
                 </div>
             </div>
             <div class="card-body">
@@ -102,19 +103,23 @@
                 <td>{{ $x->section_name ?? 'غير موجود' }}</td>
                 <td>{{ $x->description ?? 'غير موجود' }}</td>
                 <td>
+                    @can('تعديل قسم')
+
                                         <a class="modal-effect btn btn-sm btn-info" data-effect="effect-scale"
                                             data-id="{{ $x->id }}" data-section_name="{{ $x->section_name }}"
                                             data-description="{{ $x->description }}" data-toggle="modal"
                                             href="#exampleModal2" title="تعديل">
                                             <i class="las la-pen"></i>
                                         </a>
+                                        @endcan
 
+                                        @can('حذف قسم')
                                         <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
                                             data-id="{{ $x->id }}" data-section_name="{{ $x->section_name }}"
                                             data-toggle="modal" href="#modaldemo9" title="حذف">
                                             <i class="las la-trash"></i>
                                         </a>
-
+                                        @endcan
 
                                 </tr>
                             @endforeach
