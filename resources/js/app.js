@@ -6,6 +6,16 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
+import Chart from 'chart.js/auto';
+window.Chart = Chart;
+
+
+
+// Echo.channel('notifications')
+// .listen('NotificationEvent', (e) => {
+//     console.log(e.message);
+// });
+       
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin

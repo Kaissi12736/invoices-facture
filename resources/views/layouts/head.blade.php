@@ -18,3 +18,25 @@
 <link href="{{URL::asset('assets/css-rtl/style-dark.css')}}" rel="stylesheet">
 <!---Skinmodes css-->
 <link href="{{URL::asset('assets/css-rtl/skin-modes.css')}}" rel="stylesheet">
+<button id="theme-toggle" class="btn btn-primary">
+    تبديل الوضع
+</button>
+
+<script>
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeLink = document.getElementById("theme");
+
+    themeToggle.addEventListener("click", () => {
+        let currentTheme = localStorage.getItem("theme") || "light";
+
+        if (currentTheme === "light") {
+            themeLink.href = "{{URL::asset('assets/css-rtl/style-dark.css')}}";
+            localStorage.setItem("theme", "dark");
+            document.body.classList.add("dark-mode");
+        } else {
+            themeLink.href = "{{URL::asset('assets/css-rtl/style.css')}}";
+            localStorage.setItem("theme", "light");
+            document.body.classList.remove("dark-mode");
+        }
+    });
+</script>

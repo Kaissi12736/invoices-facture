@@ -8,7 +8,7 @@ use App\Models\Invoices;
 
 
 
-class invoice_attachments extends Model
+class Invoice_attachments extends Model
 {
     public function invoice()
     {

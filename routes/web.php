@@ -13,7 +13,7 @@ use App\Http\Controllers\InvoiceDetailsController;
 use App\Http\Controllers\InvoicesReportController;
 use App\Http\Controllers\CustomersReportController;
 use App\Http\Controllers\InvoiceAttachmentsController;
-
+use App\Events\NotificationEvent;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -80,6 +80,14 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('users', UserController::class);
  
 });
+
+;
+
+Route::post('/markAsReadAll', [InvoicesController::class, 'markAllAsRead'])->name('markAsReadAll');
+
+
+
+
 
 
 Route::get('/{page}', [AdminController::class,'index']);

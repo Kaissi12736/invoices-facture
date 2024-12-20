@@ -22072,6 +22072,32 @@ table.dataTable tfoot th, table.dataTable tfoot td {
       padding: 6px 9px;
       color: #364261; }
 
+  
+    .main-header {
+        background-color: #333333 !important; /* اختر اللون الذي تريده */
+        color: #ffffff !important; /* اللون الخاص بالنصوص داخل الـ header */
+    }
+
+    .main-header .nav-link,
+    .main-header .navbar-form .form-control,
+    .main-header .navbar-form .btn {
+        color: #ffffff !important; /* تأكد من وضوح النصوص والروابط */
+    }
+
+    .main-header .dropdown-menu {
+        background-color: #444444 !important; /* لون خلفية القوائم المنسدلة */
+    }
+
+    .main-header .dropdown-menu a {
+        color: #ffffff !important; /* لون النصوص داخل القوائم المنسدلة */
+    }
+
+    .main-header .dropdown-menu a:hover {
+        background-color: #555555 !important; /* لون عند مرور الفأرة */
+    }
+
+
+
 /* ###### 4.12 Datetimepicker ###### */
 /* Amaze UI Datetimepicker */
 .datetimepicker {
@@ -52509,3 +52535,4 @@ a.text-dark:hover, a.text-dark:focus {
   width: 100vw; }
 
 /*# sourceMappingURL=style.css.map */
+
